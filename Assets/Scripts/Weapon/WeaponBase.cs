@@ -98,8 +98,10 @@ public class WeaponBase : MonoBehaviour {
 	public float upgradeSteadyFactor = 1;
 	public int upgradeSteady = 0;
 
+	[HideInInspector] public int upgradeSpent = 0;
 	private Animator animator;
 	private float fireTimer;
+	private bool canShoot = true;
 	private bool isReloading = false;
 	private bool isEnabled = true;
 	private Vector3 originalPos;
@@ -204,14 +206,15 @@ public class WeaponBase : MonoBehaviour {
 	}
 
 	void Fire() {
-		if(fireTimer < fireRate || !isEnabled) return;
-
-		fireTimer = 0f;		// Reset timer
+		if(!canShoot) return;
 
 		if(loadedBullets <= 0) {
 			// When Ammo is out, make fire is not working for a moment
 			StartCoroutine(DisableFire());
 			soundManager.Play(drySound);
+
+			canShoot = false;
+			StartCoroutine(CoResetShootable());
 			return;
 		}
 		
@@ -330,7 +333,15 @@ public class WeaponBase : MonoBehaviour {
 		loadedBullets--;
 		UpdateAmmoText();
 
-		fireTimer = 0.0f;
+		canShoot = false;
+		StartCoroutine(CoResetShootable());
+	}
+
+	IEnumerator CoResetShootable() {
+		yield return new WaitForSeconds(fireRate);
+
+		canShoot = true;
+		yield break;
 	}
 
 	void GiveRecoil() {
@@ -435,6 +446,7 @@ public class WeaponBase : MonoBehaviour {
 	}
 
 	public void InitAmmo() {
+		canShoot = true;
 		bulletsLeft = startBullets;
 		loadedBullets = bulletsPerMag;
 	}

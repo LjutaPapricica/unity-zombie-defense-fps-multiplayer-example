@@ -124,11 +124,14 @@ public class NetworkEnemySpawner : Photon.MonoBehaviour {
 	void UpgradeEnemy() {
 		currentHealth += 5;
 
-		if(currentMoveSpeed < 5.5f) {
+		if(currentMoveSpeed < 6.0f) {
 			currentMoveSpeed += 0.4f;
 		}
 		if(currentDamage < 90f) {
 			currentDamage += 2f;
+		}
+		else {
+			currentDamage = 90;
 		}
 		
 		currentEXP++;

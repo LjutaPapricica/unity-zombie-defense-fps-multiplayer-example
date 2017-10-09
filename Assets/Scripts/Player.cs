@@ -41,39 +41,58 @@ public class Player : Photon.MonoBehaviour {
 			if(photonView.isMine) {
 				DestroyAllIndicators();
 
+				WeaponManager weaponManager = GetComponent<WeaponManager>();
 				FundSystem fundSystem = GetComponent<FundSystem>();
 				Transform fpsChar = transform.Find("FirstPersonCharacter");
 				Transform weaponHolder = fpsChar.Find("WeaponHolder");
 				int weaponsCount = weaponHolder.childCount;
-				int savingFund;
 				float totalFund = fundSystem.GetFund();
+
+				// Add weapon cost
+				switch(weaponManager.primaryWeapon) {
+					case Weapon.AKM:
+						totalFund += 850;
+						break;
+					case Weapon.M870:
+						totalFund += 650;
+						break;
+					case Weapon.UMP45:
+						totalFund += 450;
+						break;
+					case Weapon.MP5K:
+						totalFund += 250;
+						break;
+				}
+
+				switch(weaponManager.secondaryWeapon) {
+					case Weapon.Python:
+						totalFund += 300;
+						break;
+				}
 
 				// Accumulate upgraded costs
 				for(int i = 0; i < weaponsCount; i++) {
 					Transform weapon = weaponHolder.GetChild(i);
 					WeaponBase weaponBase = weapon.GetComponent<WeaponBase>();
-					int upgrades = weaponBase.GetUpgrades();
-					int upgradeCost = weaponBase.upgradeCost;
-					totalFund += (upgradeCost * upgrades);
+					
+					totalFund += weaponBase.upgradeSpent;
+					weaponBase.upgradeSpent = 0;
 				}
 
 				// Accumulate other upgraded costs
 				// Upgrade Health
 				if(upgradeHealth > 1) {
-					int cost = 100 + ((upgradeHealth - 1) * 75);
+					int cost = 100 + ((upgradeHealth - 1) * 90);
 					totalFund += cost;
 				}
 
 				// Upgrade Regeneration
 				if(upgradeRegeneration > 1) {
-					int cost = 100 + ((upgradeRegeneration - 1) * 75);
+					int cost = 100 + ((upgradeRegeneration - 1) * 70);
 					totalFund += cost;
 				}
 
-				totalFund *= 0.9f;
-				savingFund = System.Convert.ToInt32(totalFund);
-
-				networkManager.SaveFund(savingFund);
+				networkManager.SaveFund(System.Convert.ToInt32(totalFund));
 				
 				fpsChar.gameObject.SetActive(false);
 				character.gameObject.SetActive(true);

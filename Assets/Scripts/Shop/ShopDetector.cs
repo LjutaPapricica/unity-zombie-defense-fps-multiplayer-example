@@ -180,7 +180,7 @@ public class ShopDetector : MonoBehaviour {
 					int upgraded = player.upgradeHealth;
 
 					if(upgraded < 10) {
-						shopPrice = 100 + (upgraded * 100);
+						shopPrice = 100 + (upgraded * 90);
 						shopText.text = shopTitle + " Lv" + (upgraded + 1) + "\n(" + shopPrice + "$)\n\n" +  shopDesc + "\n\n";
 					}
 					else {
@@ -192,7 +192,7 @@ public class ShopDetector : MonoBehaviour {
 					int upgraded = player.upgradeRegeneration;
 
 					if(upgraded < 10) {
-						shopPrice = 100 + (upgraded * 75);
+						shopPrice = 100 + (upgraded * 70);
 						shopText.text = shopTitle + " Lv" + (upgraded + 1) + "\n(" + shopPrice + "$)\n\n" +  shopDesc + "\n\n";
 					}
 					else {
@@ -307,7 +307,7 @@ public class ShopDetector : MonoBehaviour {
 						}
 						else if(shopType == ShopType.UPGRADE_HEALTH) {
 							HealthManager healthManager = transform.parent.GetComponent<HealthManager>();
-							float addtionalHealth = 20f;
+							float addtionalHealth = 17f;
 							
 							healthManager.SetHealth(healthManager.Health + addtionalHealth);
 							healthManager.SetMaxHealth(healthManager.MaxHealth + addtionalHealth);
@@ -372,7 +372,8 @@ public class ShopDetector : MonoBehaviour {
 								PrintWarning("Your weapon is fully upgraded.");
 							}
 							else {
-								UpgradeWeapon(weaponBase, ShopType.UPGRADE_DAMAGE);								
+								UpgradeWeapon(weaponBase, ShopType.UPGRADE_DAMAGE);
+								weaponBase.upgradeSpent += shopPrice;				
 							}
 						}
 						else if(shopType == ShopType.UPGRADE_RELOAD) {
@@ -381,7 +382,8 @@ public class ShopDetector : MonoBehaviour {
 								PrintWarning("Your weapon is fully upgraded.");
 							}
 							else {
-								UpgradeWeapon(weaponBase, ShopType.UPGRADE_RELOAD);								
+								UpgradeWeapon(weaponBase, ShopType.UPGRADE_RELOAD);
+								weaponBase.upgradeSpent += shopPrice;
 							}
 						}
 						else if(shopType == ShopType.UPGRADE_RECOIL) {
@@ -390,7 +392,8 @@ public class ShopDetector : MonoBehaviour {
 								PrintWarning("Your weapon is fully upgraded.");
 							}
 							else {
-								UpgradeWeapon(weaponBase, ShopType.UPGRADE_RECOIL);								
+								UpgradeWeapon(weaponBase, ShopType.UPGRADE_RECOIL);
+								weaponBase.upgradeSpent += shopPrice;
 							}
 						}
 						else if(shopType == ShopType.UPGRADE_MAGAZINE) {
@@ -399,7 +402,8 @@ public class ShopDetector : MonoBehaviour {
 								PrintWarning("Your weapon is fully upgraded.");
 							}
 							else {
-								UpgradeWeapon(weaponBase, ShopType.UPGRADE_MAGAZINE);								
+								UpgradeWeapon(weaponBase, ShopType.UPGRADE_MAGAZINE);
+								weaponBase.upgradeSpent += shopPrice;
 							}
 						}
 						else if(shopType == ShopType.UPGRADE_MAX_AMMO) {
@@ -408,7 +412,8 @@ public class ShopDetector : MonoBehaviour {
 								PrintWarning("Your weapon is fully upgraded.");
 							}
 							else {
-								UpgradeWeapon(weaponBase, ShopType.UPGRADE_MAX_AMMO);								
+								UpgradeWeapon(weaponBase, ShopType.UPGRADE_MAX_AMMO);
+								weaponBase.upgradeSpent += shopPrice;
 							}
 						}
 						else {

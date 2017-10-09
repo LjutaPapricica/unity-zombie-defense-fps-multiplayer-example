@@ -26,7 +26,8 @@ I'm strongly recommend that just learn how this game works, not gonna use the re
 I'm not responsible of those personal un-licensed uses!
 
 
-## Patch Note
+## Patch Notes
+### (Don't remember XD)
 - Refund money rate when revives increased to 70% -> 90%
 - Give extra respawn bonus (100 * Player numbers in the game)
 - Reduce cost of some weapons (Especially high tier weapons)
@@ -34,6 +35,52 @@ I'm not responsible of those personal un-licensed uses!
 - Reduce heal cost (200 + (UsedCount * 100) => 100 + (UsedCount * 75))
 - Increase respawn protection duration to 20 seconds.
 - Reduce cost of resurrection(100 + increase by time => 100 Fixed)
+
+### Oct 8th
+- Removed respawn fund penalty that has only 90% to 100%
+- Now also weapon cost will refund on respawn
+- Upgrade Health cost reduced
+- Upgrade Health bonus reduced 20 -> 17
+- Upgrade Regeneration cost reduced
+- Police 9mm
+    - Ammo cost reduced 90 -> 75
+    - Damage reduced 17 -> 15
+    - Fire rate decreased 0.25 -> 0.15
+    - Damage upgrade factor increased 4 -> 6
+    - Reload upgrade factor decreased to 0.5
+    - Reduce recoil upgrade factor decreased to 0.01
+- Compact PDW
+    - Fire rate decreased 0.06 -> 0.05
+    - Damage reduced 15 -> 12
+    - Max ammo capacity increased 100 -> 150
+    - Reload upgrade factor decreased to 0.2
+    - Reduce recoil upgrade factor decreased to 0.005
+- Portable Magnum
+    - Weapon cost reduced 350 -> 300
+    - Max ammo capacity increased 24 -> 30
+    - Damage upgrade factor increased 11 -> 13
+    - Reload upgrade factor increased 0.2 -> 0.35
+    - Fire rate decreased 0.6 -> 0.2
+    - Reload upgrade factor decreased to 0.1
+    - Reduce recoil upgrade factor decreased to 0.03
+- Auto 45
+    - Max ammo capacity increased 100 -> 150
+    - Ammo cost raised 180 -> 220
+    - Damage upgrade factor increased 5 -> 7
+    - Reload upgrade factor decreased to 0.1
+    - Reduce recoil upgrade factor decreased to 0.01
+- Defender Shotgun
+    - Fire rate decreased 0.8 -> 0.575
+    - Reload speed increased by 20%
+    - Damage upgrade factor increased 20 -> 24
+    - Reload upgrade factor decreased to 0.1
+    - Reduce recoil upgrade factor decreased to 0.01
+    - Extend Magazine upgrade factor decreased 0.75 -> 0.6
+- Stov Rifle
+    - Weapon cost raised 850 -> 900
+    - Damage upgrade factor increased 8 -> 12
+    - Reload upgrade factor decreased to 0.15
+    - Reduce recoil upgrade factor decreased to 0.01
 
 
 ## Features
