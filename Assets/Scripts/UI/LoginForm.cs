@@ -90,7 +90,7 @@ public class LoginForm : MonoBehaviour {
 	}
 
 	IEnumerator CoSubmit(WWWForm formData) {
-		WWW httpResult = new WWW("http://YOUR_DOMAIN_HERE/auth", formData);
+		WWW httpResult = new WWW("http://modernator.me:5010/auth", formData);
 
 		yield return httpResult;
 

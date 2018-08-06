@@ -96,7 +96,7 @@ public class RegisterForm : MonoBehaviour {
 	}
 
 	IEnumerator CoSubmit(WWWForm formData) {
-		WWW httpResult = new WWW("http://YOUR_DOMAIN_HERE/user", formData);
+		WWW httpResult = new WWW("http://modernator.me:5010/user", formData);
 
 		yield return httpResult;
 

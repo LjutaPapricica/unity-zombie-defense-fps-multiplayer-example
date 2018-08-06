@@ -458,6 +458,7 @@ public class WeaponBase : MonoBehaviour {
 		UpdateAmmoText();
 
 		isEnabled = true;
+		canShoot = true;
 		animator.Play("FPSHand|Draw");
 
 		if(hasLastFire && loadedBullets <= 0) {
