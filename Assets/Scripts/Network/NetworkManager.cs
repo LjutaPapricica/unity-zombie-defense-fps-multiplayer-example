@@ -360,7 +360,7 @@ public class NetworkManager : Photon.MonoBehaviour {
 
 		WWWForm formData = new WWWForm();
 		formData.AddField("_method", "delete");
-		WWW httpResult = new WWW("http://modernator.me:5010/auth?token=" + playerStatus.token, formData);
+		WWW httpResult = new WWW("http://<YOUR_SERVER_IP>/auth?token=" + playerStatus.token, formData);
 
 		yield return httpResult;
 		

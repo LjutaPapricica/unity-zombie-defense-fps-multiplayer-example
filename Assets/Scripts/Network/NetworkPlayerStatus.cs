@@ -26,7 +26,7 @@ public class NetworkPlayerStatus : MonoBehaviour {
 	}
 
 	IEnumerator CoGetUserData(HttpCallback onComplete) {
-		WWW httpResult = new WWW("http://modernator.me:5010/user?token=" + token);
+		WWW httpResult = new WWW("http://<YOUR_SERVER_IP>/user?token=" + token);
 
 		yield return httpResult;
 
@@ -80,7 +80,7 @@ public class NetworkPlayerStatus : MonoBehaviour {
 		formData.AddField("killsPython", killsPython);
 		formData.AddField("killsUmp45", killsUmp45);
 
-		WWW httpResult = new WWW("http://modernator.me:5010/user?token=" + token, formData);
+		WWW httpResult = new WWW("http://<YOUR_SERVER_IP>/user?token=" + token, formData);
 
 		yield return httpResult;
 
